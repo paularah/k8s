@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata:
+  name: jollof-deployment 
+  labels:
+    name: jollof-prod 
+    type: backend 
+spec:
+  template:
+    metadata:
+      name: jollof-pods
+      labels:
+        name: jollof-prod 
+        type: backend
+    spec:
+       containers:
+       - name: redis 
+         image: redis
+  replicas: 4
+  selector:
+    matchLabels:
+      type: backend 

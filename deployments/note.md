@@ -1,0 +1,1 @@
+create a deployment imperatively with kubectl create and add in the neccessary info like the image name, replica, etc. You can scale an existing deployment with `kubectl scale deployment <deployment name> --replicas=<replica num>`
