@@ -1,0 +1,1 @@
+The major difference between a replication controller and a replicaset is the a replica set has a selector field. This makes sense because pods not created by the replicaset but matches the labels can still be controlled by the replicaset wkeeing the number of pods as intended. 
