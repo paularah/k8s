@@ -14,3 +14,11 @@ count the nnumber of namespaces on a cluster
 get  pods or another object type in all namespaces on a cluster 
 
 `kubectl get pods --all-namespaces | grep <specific pod>`
+
+short form for all namesapces is `A`
+
+k8s creates a `kubesystem` namespace to isolate k8s resources from the user, preventing an accidental deletion of k8s resources. 
+
+resources that should be available to all users are in the kube public namespace.
+
+
