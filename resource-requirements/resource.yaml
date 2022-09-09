@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod 
+metadata:
+  name: resource-req
+spec:
+  containers:
+    - image: redis 
+      name: resource-pods
+      resources:
+         requests:
+           memory: "20Gi"
+         limits: 
+           memory: "50Gi"
+
+
+ 
+            
