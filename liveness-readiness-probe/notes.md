@@ -1,0 +1,1 @@
+liveness probes ensure that a container is healthy, when a conatiner fails the liveness probe test, it is restarted. On the other hand readiness probe ensure that a container is ready to start recieving request. As a general rule of thumb, you have 3 ways to test for livveness and readness. Via an httpRequest, via tcp socket or executing a command. 
