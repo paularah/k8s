@@ -1,0 +1,1 @@
+enable metrics server on minikube or clone and apply the metrics server on any other cluster type. `kubectl top node` displays basic metrics about a node. For more advanced usage you will have to settle for something oile promotheus. `kubectl top pod` displays the metrics for the individual pod. 

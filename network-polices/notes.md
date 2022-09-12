@@ -1,0 +1,1 @@
+There is no imperative wya to create nwtwork policies. So all rulesets will have to be created by hand. There two type of network polices. Ingress and Egress. The reuleset can either be by podselectors, namespace selector or Ip range(CIDR)
