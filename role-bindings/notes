@@ -1,0 +1,1 @@
+roles are used for RBAC. role binds aaocaite a role and user together. the rlation is essentially this: What a role has access to and can do is in  defined in the role what, the role binding then asociates this role with user
