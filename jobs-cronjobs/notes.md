@@ -1,0 +1,1 @@
+Jobs create pods underneath to execute and complete a task and are quite different from pods created by repica sets becuase by default a restart policy of alwas tries to ensure a pod  is always alive. completions indicate the number of succesful executions that equates a completed job. N/B: A cronjob has 3 spec -> cronjob spec -> job spec and pod spec  
