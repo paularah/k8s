@@ -9,7 +9,8 @@ rm -f "${target_dir}/README.md"
 # Create a new README.md file with the initial heading
 echo "# Kubernetes Learning Notes" > "${target_dir}/README.md"
 
-echo "The content here is automically generated from the sub-directories of this repo" > "${target_dir}/README.md"
+
+echo "The content here is automically generated from the sub-directories of this repo" > "${target_dir}/README.md \n /n"
 
 
 # Function to check if a folder has images
