@@ -1,4 +1,4 @@
-The content here is automically generated from the sub-directories of this repo
+# Kubernetes Learning Notes
 ## /home/arah/learning/k8s/cluster-roles
 since roles and role bindings are namepaced, cluster wide resources like nodes and persistent volumes cannot be used for them. Cluster roles allows us do this. Addionally, cluster roles are creating authorization on  namespaced k8s objects cluster wide without being pined to a specific nampeaced.  
 
