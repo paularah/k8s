@@ -6,4 +6,10 @@ edit the node and place labels on te node and modify the pod edfintion to write 
 
 ## Importants operators 
 
-In, NotIn, Exists, DoesNotExist 
+In, NotIn, Exists, DoesNotExist
+
+## Important Ruleset 
+The rulesets here uses the affinity/affinity langauage 
+
+`requiredDuringSchedulingIgnoredDuringExecution` means that a pod is only scheduled on a node when the rule sets applies `preferredDuringSchedulingIgnoredDuringExecution` is the opposite. This only affects scheduling. existing pods are ignored.
+
