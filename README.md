@@ -21,6 +21,11 @@ envFrom in the corresponding pod defintion file is an array field, this makes se
 `kubectl logs -f <pod-name>` the -f flag stream the logs the STDIN just like docker -it does. 
 
 
+## daemon-sets
+Daemon Sets ensures a pod is always schedule on every node in the cluster. This useful for uses cases like having a monitoring solution on each. Kube-proxy example is deployed as a daemon set on each node in the cluster. 
+
+An exam trick to avoid wasting time find how to properly write the definition file for a daemon set is to  extract the file from tge flannel daemon set and edit it. 
+
 ## ingress
 A good way to think of ingress controllers is to think of them as eessentialy a layer 7 proxy baked into k8s. Ingress controllers are deployed via a deployment, configuration is placed in a config map and a service account with the right authorization is created too. A service to expose the deployment on stnadard port 80 and 443 is also created. Afterwrds, the ingress resources that specifies the rule on how traffic is directed to the cluster is also created. This together forms a simple ingress deployment. 
 
