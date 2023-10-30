@@ -26,5 +26,8 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Run the update-readme.sh script
-        run: bash update-readme.sh
+        run: |
+         bash update-readme.sh
+         ls 
+         cat 
 
