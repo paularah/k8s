@@ -4,7 +4,9 @@
 rm -f README.md
 
 # Create a new README.md file
-echo "# My Kubernetes Learning Notes" > README.md
+echo "#Kubernetes Learning Notes" > README.md
+echo "These notes probably contain a lot of typo. I just add notes from studying here and I don't bother to edit them." > README.md
+
 
 # Function to check if a folder has images
 has_images() {
@@ -16,7 +18,7 @@ has_images() {
   fi
 }
 
-# Function to append images to README.md
+# appends images to README.md
 append_images() {
   local folder="$1"
   for image in "${folder}"/*.{png,jpg,jpeg,gif,bmp,svg,webp}; do

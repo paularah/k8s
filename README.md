@@ -1,4 +1,4 @@
-# My Kubernetes Learning Notes
+These notes probably contain a lot of typo. I just add notes from studying here and I don't bother to edit them.
 ## cluster-roles
 since roles and role bindings are namepaced, cluster wide resources like nodes and persistent volumes cannot be used for them. Cluster roles allows us do this. Addionally, cluster roles are creating authorization on  namespaced k8s objects cluster wide without being pined to a specific nampeaced.  
 
@@ -24,7 +24,7 @@ envFrom in the corresponding pod defintion file is an array field, this makes se
 ## daemon-sets
 Daemon Sets ensures a pod is always schedule on every node in the cluster. This useful for uses cases like having a monitoring solution on each. Kube-proxy example is deployed as a daemon set on each node in the cluster. 
 
-An exam trick to avoid wasting time find how to properly write the definition file for a daemon set is to  extract the file from tge flannel daemon set and edit it. 
+An exam trick to avoid wasting time find how to properly write the definition file for a daemon set is to  extract the file from tge flannel daemon set and edit it. Or dry run a deployment change the kind to daemon sets and remove the replicas
 
 ## ingress
 A good way to think of ingress controllers is to think of them as eessentialy a layer 7 proxy baked into k8s. Ingress controllers are deployed via a deployment, configuration is placed in a config map and a service account with the right authorization is created too. A service to expose the deployment on stnadard port 80 and 443 is also created. Afterwrds, the ingress resources that specifies the rule on how traffic is directed to the cluster is also created. This together forms a simple ingress deployment. 
@@ -126,6 +126,13 @@ Container securty context takes precedence over pod security context
 ## service-account
 user accounts are for humans and service account for apps. A default service account is created with limited permisions. A secret is creaetd with a JWT token i it which can then be used to authenticate against the k8s API. A volume is also mounted in the pods `var/run/secrets` so pods can access the secrets internally
 
+
+## static-pods
+Static pods are created by kubelet independent of the Kube-api-server. say you want to deploy a pod on a without going through the kube-api-server, you'd use a static pod. static pods are also how the various components of the controlplane are deployed as pods on the node. 
+
+You can configure a static pod in the kubelet.service file with  `--pod-manifest-path=/etc/Kubernetes/manifests` option or pass in a `--config=kubeconfig.yaml` that points a kubeconfig with the `staticPodPath:<path>`. Kubeadm uses this approach. 
+
+N/B: You can see a mirror static pods when you query the kube-api-server for the pods, this means you can not make changes from the kube-ap-server to a static pod, the kubelet configuration would have to be modified. Kubelet also manages the lifecycle of a static pods independent of the kube-api-server.
 
 ## taints-tolerations
 Taints are applied on nodes and work like a some sort  of default-deny model. When a taint is applied on node, no pod can be scheduled on that node until a toleration for that node is applied on the pod.

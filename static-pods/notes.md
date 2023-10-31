@@ -1,0 +1,5 @@
+Static pods are created by kubelet independent of the Kube-api-server. say you want to deploy a pod on a without going through the kube-api-server, you'd use a static pod. static pods are also how the various components of the controlplane are deployed as pods on the node. 
+
+You can configure a static pod in the kubelet.service file with  `--pod-manifest-path=/etc/Kubernetes/manifests` option or pass in a `--config=kubeconfig.yaml` that points a kubeconfig with the `staticPodPath:<path>`. Kubeadm uses this approach. 
+
+N/B: You can see a mirror static pods when you query the kube-api-server for the pods, this means you can not make changes from the kube-ap-server to a static pod, the kubelet configuration would have to be modified. Kubelet also manages the lifecycle of a static pods independent of the kube-api-server.

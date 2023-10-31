@@ -1,3 +1,3 @@
 Daemon Sets ensures a pod is always schedule on every node in the cluster. This useful for uses cases like having a monitoring solution on each. Kube-proxy example is deployed as a daemon set on each node in the cluster. 
 
-An exam trick to avoid wasting time find how to properly write the definition file for a daemon set is to  extract the file from tge flannel daemon set and edit it. 
+An exam trick to avoid wasting time find how to properly write the definition file for a daemon set is to  extract the file from tge flannel daemon set and edit it. Or dry run a deployment change the kind to daemon sets and remove the replicas
