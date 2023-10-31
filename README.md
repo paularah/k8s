@@ -9,13 +9,11 @@ In docker, `ENTRYPOINT` is a default command, and then `CMD` is appended to it. 
 N/B: The commands and args in the pod definition always takes precedent to the container/dockefile. 
 
 ## config-maps
-## Importat commands 
+## Important commands 
 
+`kubectl create configmap <config-map-name> --from-literal=<KEY>=<VALUE>`
 
-`kubectl create configmap app-config --from-literal=<KEY>=<VALUE>`
-
-envFrom in the corresponding pod defintion file is an array field, this makes sense be cuase you can specify muktile config maps in a pod. `:wq
-
+You can either inject a specific key in the config map or the entire config map as env in the pod. Config can also be mounted in volumes inside the pod 
 
 
 ## container-logging
@@ -101,6 +99,13 @@ When the CPU usage of pod exceeds the limit, the CPU usage is throttled, on the 
 
 
 ## scheduling
+![Image](scheduling/Screenshot from 2023-10-31 05-32-19.png)
+![Image](scheduling/*.jpg)
+![Image](scheduling/*.jpeg)
+![Image](scheduling/*.gif)
+![Image](scheduling/*.bmp)
+![Image](scheduling/*.svg)
+![Image](scheduling/*.webp)
 The scheduler places pod on the nodes. This is based on scheduling algorithm the scheduler uses. THe scheduler is a pod in the `kube-system` namespace. Typically when a pod is created, the scheduler attaches the pod to a node with `nodeName` property. You can add the node's name here if you want to manually scheule a pod. When you inspect the live pod and the nodeName property is missing, this most likely points to an issue with the scheduler. 
 
 ## Custom/Multiple Schedulers 
