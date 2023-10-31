@@ -1,1 +1,4 @@
 The scheduler places pod on the nodes. This is based on scheduling algorithm the scheduler uses. THe scheduler is a pod in the `kube-system` namespace. Typically when a pod is created, the scheduler attaches the pod to a node with `nodeName` property. You can add the node's name here if you want to manually scheule a pod. When you inspect the live pod and the nodeName property is missing, this most likely points to an issue with the scheduler. 
+
+## Custom/Multiple Schedulers 
+You can deploy your custom scheduler as a service on the node, or as deployment or pod. In a scenarios where there are multiple schedulers, you can specify the scheduler a pod should use with th fieldname of `schedulerName:<your-custom-scheduler>`
