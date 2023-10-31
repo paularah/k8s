@@ -1,7 +1,5 @@
-## Importat commands 
+## Important commands 
 
+`kubectl create configmap <config-map-name> --from-literal=<KEY>=<VALUE>`
 
-`kubectl create configmap app-config --from-literal=<KEY>=<VALUE>`
-
-envFrom in the corresponding pod defintion file is an array field, this makes sense be cuase you can specify muktile config maps in a pod. `:wq
-
+You can either inject a specific key in the config map or the entire config map as env in the pod. Config can also be mounted in volumes inside the pod 
