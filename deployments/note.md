@@ -9,7 +9,7 @@ N/B: Anytime you use a command the modifies a deployment, you can the `--record`
 ### important commands
 
 `k apply -f <file.yaml>`
-`k set image deployment.v1.apps/<deployment-name>  <image-name>`
+`k set image deployment.v1.apps/<deployment-name>  <container-name>=<image-name>` this make sense because there could more than one container in a deployment.
 `k rollout status deployment<deloyment-name>`
 `k rollout history deployment<deployment-name>`
 `k rollout undo deployment/<deployment-name>`
