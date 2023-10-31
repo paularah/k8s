@@ -4,7 +4,7 @@ create a deployment imperatively with kubectl create and add in the neccessary i
 
 The default deployment strategy is a rolling update. You can also use a recreate strategy 
 
-N/B: Anytime you use a command the modifies a deployment, you can the `--record` flag to record which specific command made changes to the deployment.
+N/B: Anytime you use a command the modifies a deployment, you can the `--record` flag to record which specific command made changes to the deployment. You'd this on the `CHANGE-CAUSE` column of the rollout history. 
 
 ### important commands
 
