@@ -10,7 +10,7 @@ In docker, `ENTRYPOINT` is a default command, and then `CMD` is appended to it. 
 N/B: The commands and args in the pod definition always takes precedent to the container/dockefile. 
 
 ## config-maps
-### Important commands 
+#### Important commands 
 
 `kubectl create configmap <config-map-name> --from-literal=<KEY>=<VALUE>`
 
@@ -65,11 +65,11 @@ steps
 
 edit the node and place labels on te node and modify the pod definition to write the rules sets on how the pods gets placed on the node. 
 
-### Importants operators 
+#### Importants operators 
 
 In, NotIn, Exists, DoesNotExist
 
-### Important Ruleset 
+#### Important Ruleset 
 The rulesets here uses the affinity/ant-affinity language 
 
 `requiredDuringSchedulingIgnoredDuringExecution` means that a pod is only scheduled on a node when the rule sets applies `preferredDuringSchedulingIgnoredDuringExecution` is the opposite. This only affects scheduling. existing pods are ignored.
@@ -79,7 +79,7 @@ The rulesets here uses the affinity/ant-affinity language
 ## node-selectors
 node selectors ensure a specific pod is placed on a specific node using labels and selector. Node are labels and pod created to match this label
 
-### Important Commands
+#### Important Commands
 
 `k label nodes <node-name> <key>=<value>`
 
@@ -111,13 +111,13 @@ When the CPU usage of pod exceeds the limit, the CPU usage is throttled, on the 
 ![Image](scheduling/*.webp)
 The scheduler places pod on the nodes. This is based on scheduling algorithm the scheduler uses. THe scheduler is a pod in the `kube-system` namespace. Typically when a pod is created, the scheduler attaches the pod to a node with `nodeName` property. You can add the node's name here if you want to manually scheule a pod. When you inspect the live pod and the nodeName property is missing, this most likely points to an issue with the scheduler. 
 
-### Custom/Multiple Schedulers 
+#### Custom/Multiple Schedulers 
 You can deploy your custom scheduler as a service on the node, or as deployment or pod. In a scenarios where there are multiple schedulers, you can specify the scheduler a pod should use with th fieldname of `schedulerName:<your-custom-scheduler>`
 
 ## secrets
 You can create secret imperatively by `k create secret generic <secret name> --from-literal`
 
-### important commands
+#### important commands
 
 base64 encode a string using the in built linux utility 
 

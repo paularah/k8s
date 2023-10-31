@@ -29,7 +29,7 @@ append_images() {
 convert_subheadings() {
   local input_file="$1"
   local output_file="$2"
-  sed 's/## /### /' "$input_file" > "$output_file"
+  sed 's/## /#### /' "$input_file" > "$output_file"
 }
 
 # Iterate through subdirectories
