@@ -88,6 +88,14 @@ node selectors ensure a specific pod is placed on a specific node using labels a
 enable metrics server on minikube or clone and apply the metrics server on any other cluster type. `kubectl top node` displays basic metrics about a node. For more advanced usage you will have to settle for something oile promotheus. `kubectl top pod` displays the metrics for the individual pod. 
 
 
+## os-upgrades
+#### Important commands 
+`k cordon <node-name>` doesn't evict existing pods on the nodes, only prevents new pods from being placed on the node. 
+`k drain <node-name>` migrate workloads on the node to other nodes. Think of this as gracefully migrating workloads away from a node.
+`k uncordon <node-name>` marks a node as available and  now ready to receive workloads. 
+
+N/B: The `--pod-eviction-timeout` config determines how long after a node is unreachable should be cordoned off. The default value is 5 minutes(5m0s) 
+
 ## persistent-volume-claims
 Persistent volumes essentially removes the need to configure a storage solution like a volume for every user in the clutster. A persistent volume is confgured once and users creating pods and deployment can make a claim to it. A persistent volume claim is essentially a claim to a persistent volume :) Th pod can then be configured to use the persistent volume claim as volume  bad analogy but yeah. Btw both object can only be created delaratively, so dont try creating them impertavely.storage class are a way dynamically provision persistent volumes. When a claim is made to a volume, the storgae clas creates the peristent volume under the hood on the fly.  
 
@@ -102,13 +110,6 @@ When the CPU usage of pod exceeds the limit, the CPU usage is throttled, on the 
 
 
 ## scheduling
-![Image](scheduling/Screenshot from 2023-10-31 05-32-19.png)
-![Image](scheduling/*.jpg)
-![Image](scheduling/*.jpeg)
-![Image](scheduling/*.gif)
-![Image](scheduling/*.bmp)
-![Image](scheduling/*.svg)
-![Image](scheduling/*.webp)
 The scheduler places pod on the nodes. This is based on scheduling algorithm the scheduler uses. THe scheduler is a pod in the `kube-system` namespace. Typically when a pod is created, the scheduler attaches the pod to a node with `nodeName` property. You can add the node's name here if you want to manually scheule a pod. When you inspect the live pod and the nodeName property is missing, this most likely points to an issue with the scheduler. 
 
 #### Custom/Multiple Schedulers 
