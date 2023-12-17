@@ -21,4 +21,6 @@ k8s creates a `kube-system` namespace to isolate k8s resources from the user, pr
 
 resources that should be available to all users are in the kube public namespace.
 
+There are namespaced and non namespaced resources. You can use the command to view them `k api-resources --namespaced=true `
+
 

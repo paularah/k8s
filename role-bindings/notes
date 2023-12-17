@@ -1,1 +1,8 @@
-roles are used for RBAC. role binds aaocaite a role and user together. the rlation is essentially this: What a role has access to and can do is in  defined in the role what, the role binding then asociates this role with user
+roles are used for RBAC. role binds aaocaite a role and user together. the relation is essentially this: What a role has access to and can do is in  defined in the role what, the role binding then asociates this role with user
+
+RBAC is namespace scoped. 
+
+
+N/B: you can us the `k auth can-i create <object>` to confirm if you have access to performing specific action. 
+
+The ``

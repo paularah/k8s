@@ -65,6 +65,8 @@ Jobs create pods underneath to execute and complete a task and are quite differe
 ## kubeconfig
 kube config fle that configure the cluster and its authentication and authorization config i typically located in `$HOME/.kube/config` directory. Users, clusters and contexts are listed in the kubeconfig file. A context associates a user with a cluster. 
 
+You can either specify the certificates path or use the actual certificates data as base64 encoded
+
 Authorization basically happen in 4 mains ways. RBAC, ABAC, webhooks and Node. 
 k8s internally uses the Node access control for kubelet to asses the cluster. webhooks relies on an external proivder to validate authorization mechannisms. ABAC relies on JSON files specificy the access control while  RBAC relies on role and role bindings 
 
@@ -76,6 +78,35 @@ While you can use resource requirement to specify how much compute a pod can use
 
 ## liveness-readiness-probe
 liveness probes ensure that a container is healthy, when a conatiner fails the liveness probe test, it is restarted. On the other hand readiness probe ensure that a container is ready to start recieving request. As a general rule of thumb, you have 3 ways to test for livveness and readness. Via an httpRequest, via tcp socket or executing a command. 
+
+
+## namespaces
+`--namespace=<pod name> to get a pod in a specific namespace `
+
+#### Important Commands
+
+Switch to a different namespace in other to avoid manually passing in the namespace for every kubectl command. 
+`kubectl config set-context $(kubectl config current-context) --namespace=dev`
+
+count the nnumber of namespaces on a cluster
+
+`kubectl get ns | wc -l`
+
+`-n flag for namespaces`
+
+get  pods or another object type in all namespaces on a cluster 
+
+`kubectl get pods --all-namespaces | grep <specific pod>`
+
+short form for all namesapces is `A`
+
+k8s creates a `kube-system` namespace to isolate k8s resources from the user, preventing an accidental deletion of k8s resources. 
+
+resources that should be available to all users are in the kube public namespace.
+
+There are namespaced and non namespaced resources. You can use the command to view them `k api-resources --namespaced=true `
+
+
 
 
 ## network-polices
