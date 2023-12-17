@@ -27,6 +27,8 @@ N/B: when using the linux base64 utility to encode a text, you can use the `-w 0
 ## cluster-roles
 since roles and role bindings are namepaced, cluster wide resources like nodes and persistent volumes cannot be used for them. Cluster roles allows us do this. Addionally, cluster roles are creating authorization on  namespaced k8s objects cluster wide without being pined to a specific nampeaced.  
 
+Basically when you create a cluster role for a namsepaced resource like pod, the resources becomes available cluster wide. 
+
 
 ## commands-and-args
 In docker, `ENTRYPOINT` is a default command, and then `CMD` is appended to it. In k8s, `command` field sort of  corresponds to the docker entry point while the `args` field corresponds to the cmd. There's naunces to this, but that's the general idea.
@@ -194,6 +196,10 @@ Container securty context takes precedence over pod security context
 ## service-account
 user accounts are for humans and service account for apps. A default service account is created with limited permisions. A secret is creaetd with a JWT token i it which can then be used to authenticate against the k8s API. A volume is also mounted in the pods `var/run/secrets` so pods can access the secrets internally
 
+
+    ##### N/B:
+
+    k8s `ReuestTokenAPI` has sort of replaced the default service behaviour. This largely the JWT tokens associated with service accounts are not time bounded( no expiry)
 
 ## static-pods
 Static pods are created by kubelet independent of the Kube-api-server. say you want to deploy a pod on a without going through the kube-api-server, you'd use a static pod. static pods are also how the various components of the controlplane are deployed as pods on the node. 
